@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorpresa 🎉</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- 1️⃣ Pantalla de acceso -->
+    <section id="acceso">
+        <h1>🔐 Acceso especial</h1>
+        <p>Esta página fue creada solo para una persona especial</p>
+
+        <input id="inputNombre" type="text" placeholder="Ingresa tu nombre">
+        <button>Entrar</button>
+    </section>
+
+    <!-- 2️⃣ Inicio -->
+    <section id="inicio">
+        <h1>Hoy no es un día cualquiera...</h1>
+        <p>Hoy celebramos el Cumpleaños de alguien increíble 🎉</p>
+        <button id="btnComenzar">Comenzar</button>
+    </section>
+
+    <!-- 3️⃣ Historia -->
+    <section id="historia">
+        <h2>Pequeño mensaje porque no soy poeta, bueno si pero no tanto</h2>
+        <p id="textoHistoria"></p>
+        <button id="btnHistoria" style="display:none;">Siguiente</button>
+    </section>
+
+    <!-- 4️⃣ Recuerdos -->
+    <section id="recuerdos">
+        <h2>Fotos que encontre en whatsApp</h2>
+        <h3>me dio pena pedirte fotos asi que agarre lo primero que encontre en el chat</h3>
+
+        <div class="galeria">
+
+            <div class="card">
+                <img src="img/manu.jpeg" alt="Foto de Manu">
+                <p>Como te encantan ellos pense que no deberian faltar</p>
+            </div>
+
+            <div class="card">
+                <img src="img/princesa1.jpeg" alt="Foto de Princesa">
+                <p>Como te encanta princesa obvio tampoco debe faltar </p>
+            </div>
+
+            <div class="card">
+                <img src="img/sirvienta.jpeg" alt="Foto de la sirvienta">
+                <p>Y obviamente tu pequeña sirvienta</p>
+            </div>
+
+        </div>
+        <button id="btnRecuerdos">Siguiente</button>
+    </section>
+
+    <!-- 5️⃣ Regalos -->
+    <section id="regalos">
+        <h2>Por presupuesto limitado solo dio para estos regalos🎁</h2>
+
+        <div class="cajas">
+
+            <div class="regalo">🎁</div>
+            <div class="regalo">🎁</div>
+            <div class="regalo">🎁</div>
+            <div class="regalo">🎁</div>
+
+        </div>
+        <button id="btnRegalos">Siguiente</button>
+    </section>
+
+    <!-- 6️⃣ Final -->
+    <section id="final">
+        <h1>🎉 Feliz Cumpleaños ASHLEE MANU... CARMONA GUZMÀN🎉</h1>
+        <p>Gracias por ser una persona tan especial</p>
+        <button id="btnReiniciar">Vuelve a empezar, yo se que te gusto</button>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- JS -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
