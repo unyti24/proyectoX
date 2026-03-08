@@ -54,6 +54,13 @@ function crearBrillos(elemento) {
 }
 
 
+// ENTER EN EL INPUT = CLICK EN BOTÓN
+inputNombre.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        botonEntrar.click();
+    }
+});
+
 // BOTÓN ENTRAR
 botonEntrar.addEventListener("click", function () {
 
