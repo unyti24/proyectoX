@@ -346,7 +346,48 @@ function lanzarConfeti() {
     })();
 
 }
+(function(){
+    emailjs.init("essForAGuFiOiFd8E");
+})();
 
+document.getElementById("mensajeForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const btnEnviar = this.querySelector("button");
+    const textoOriginal = btnEnviar.textContent;
+    const mensajeInput = document.getElementById("mensaje");
+    let mensaje = mensajeInput.value;
+
+    // Estado de carga
+    btnEnviar.disabled = true;
+    btnEnviar.textContent = "Enviando... ⏳";
+
+    emailjs.send("service_syq3hgr","template_pqva2an",{
+        mensaje: mensaje
+    })
+    .then(function(){
+        Swal.fire({
+            icon: "success",
+            title: "💌 Mensaje enviado",
+            text: "Tu mensaje le ha llegado a Fabián con éxito.",
+            confirmButtonColor: "#ff4d6d"
+        });
+
+        document.getElementById("mensajeForm").reset();
+    }, function(error){
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "No se pudo enviar el mensaje. Inténtalo de nuevo más tarde.",
+            confirmButtonColor: "#ff4d6d"
+        });
+        console.error("EmailJS Error:", error);
+    })
+    .finally(() => {
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = textoOriginal;
+    });
+});
 
 // BOTÓN REINICIAR
 const btnReiniciar = document.getElementById("btnReiniciar");

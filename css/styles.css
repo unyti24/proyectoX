@@ -158,6 +158,52 @@ input{
     transform:scale(1.1);
     box-shadow:0 8px 30px rgba(0,0,0,0.3);
 }
+
+/* MENSAJE FORM */
+.contenedor-mensaje {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    margin: 40px 0;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.contenedor-mensaje h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+#mensajeForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#mensajeForm input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+#mensajeForm button {
+    background: white;
+    color: #ff4d6d;
+    font-weight: bold;
+    padding: 15px;
+    font-size: 17px;
+}
+
+#mensajeForm button:hover {
+    background: #fff0f3;
+}
 /* FONDO FIESTA FINAL */
 
 .fondo-fiesta{
