@@ -70,7 +70,7 @@ botonEntrar.addEventListener("click", function () {
         Swal.fire({
             icon: "warning",
             title: "Oops...",
-            text: "Escribe tu nombre primero ✍️",
+            text: "Escribe la contraseña primero ✍️",
             confirmButtonColor: "#ff4d6d"
         });
         return;
