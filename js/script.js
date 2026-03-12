@@ -12,8 +12,8 @@ const recuerdos = document.getElementById("recuerdos");
 const regalosSection = document.getElementById("regalos");
 const seccionFinal = document.getElementById("final");
 
-const inputNombre = document.querySelector("#acceso input");
-const botonEntrar = document.querySelector("#acceso button");
+const accesoForm = document.getElementById("accesoForm");
+const inputNombre = document.getElementById("inputNombre");
 
 
 // BOTONES DE NAVEGACIÓN
@@ -54,15 +54,9 @@ function crearBrillos(elemento) {
 }
 
 
-// ENTER EN EL INPUT = CLICK EN BOTÓN
-inputNombre.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-        botonEntrar.click();
-    }
-});
-
-// BOTÓN ENTRAR
-botonEntrar.addEventListener("click", function () {
+// BOTÓN ENTRAR (AHORA POR FORMULARIO)
+accesoForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
     const nombreIngresado = inputNombre.value.trim().toLowerCase();
 
@@ -377,9 +371,9 @@ document.getElementById("mensajeForm").addEventListener("submit", function(e){
             title: "💌 Mensaje enviado",
             text: "Tu mensaje le ha llegado a Fabián con éxito.",
             confirmButtonColor: "#ff4d6d"
+        }).then(() => {
+            document.getElementById("mensajeForm").reset();
         });
-
-        document.getElementById("mensajeForm").reset();
     }, function(error){
         Swal.fire({
             icon: "error",
