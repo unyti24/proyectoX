@@ -148,6 +148,8 @@ audioHistoria.loop = true;
 const audioRegalos = new Audio("audio/cantantedelgeto.mp3");
 audioRegalos.loop = true;
 
+const audioPop = new Audio("audio/pop.mp3");
+
 btnComenzar.addEventListener("click", function () {
 
     inicio.style.display = "none";
@@ -241,6 +243,7 @@ regalos.forEach((regalo, index) => {
 
         // animacion de abrir regalo
         regalo.classList.add("abriendo");
+        audioPop.play();
 
         // cambiar emoji a caja abierta
         regalo.textContent = "📦";
@@ -356,14 +359,17 @@ document.getElementById("mensajeForm").addEventListener("submit", function(e){
     const btnEnviar = this.querySelector("button");
     const textoOriginal = btnEnviar.textContent;
     const mensajeInput = document.getElementById("mensaje");
+    const nombreInput = document.getElementById("nombre");
     let mensaje = mensajeInput.value;
+    let nombre = nombreInput.value;
 
     // Estado de carga
     btnEnviar.disabled = true;
     btnEnviar.textContent = "Enviando... ⏳";
 
     emailjs.send("service_syq3hgr","template_pqva2an",{
-        mensaje: mensaje
+        mensaje: mensaje,
+        nombre: nombre
     })
     .then(function(){
         Swal.fire({
@@ -394,4 +400,30 @@ const btnReiniciar = document.getElementById("btnReiniciar");
 
 btnReiniciar.addEventListener("click", function () {
     location.reload();
+});
+
+// ESTELA DE RATÓN (MOUSE TRAIL)
+document.addEventListener("mousemove", function(e) {
+    for (let i = 0; i < 3; i++) { // Crear 3 partículas por cada movimiento
+        const sparkle = document.createElement("div");
+        sparkle.classList.add("sparkle");
+        
+        // Posición del ratón con un pequeño desplazamiento aleatorio
+        const offsetX = (Math.random() - 0.5) * 15;
+        const offsetY = (Math.random() - 0.5) * 15;
+        sparkle.style.left = (e.clientX + offsetX) + "px";
+        sparkle.style.top = (e.clientY + offsetY) + "px";
+        
+        // Tamaño aleatorio más grande (antes era 4-12, ahora 8-20 aprox)
+        const size = Math.random() * 12 + 8;
+        sparkle.style.width = size + "px";
+        sparkle.style.height = size + "px";
+        
+        document.body.appendChild(sparkle);
+        
+        // Eliminar después de la animación
+        setTimeout(() => {
+            sparkle.remove();
+        }, 800);
+    }
 });

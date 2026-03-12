@@ -99,7 +99,8 @@ input{
 }
 
 .card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-10px) scale(1.03) rotate(2deg);
+    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.4);
 }
 
 .card img{
@@ -317,5 +318,53 @@ transform:scale(1) rotate(0);
     100%{
         opacity:0;
         transform:scale(2) translateY(-40px);
+    }
+}
+
+/* BRILLO EN EL TÍTULO (SHIMMER) */
+.shimmer-title {
+    background: linear-gradient(
+        to right,
+        #ffffff 20%,
+        #ffd166 40%,
+        #ffd166 60%,
+        #ffffff 80%
+    );
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+    display: inline-block;
+}
+
+@keyframes shimmer {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* ESTELA DE RATÓN */
+.sparkle {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 15px #fff, 0 0 30px #ffd166, 0 0 45px #ff4d6d;
+    animation: fadeSparkle 0.8s ease-out forwards;
+}
+
+@keyframes fadeSparkle {
+    0% {
+        transform: scale(0.5) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2.5) rotate(180deg);
+        opacity: 0;
     }
 }
