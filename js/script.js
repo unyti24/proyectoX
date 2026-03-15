@@ -3,6 +3,34 @@ const nombrePermitido = "quieromuchoafabian";
 let intentosFallidos = 0;
 const maxIntentos = 10;
 
+// LLUVIA DE CORAZONES
+function crearLluvia() {
+    const lluvia = document.getElementById("lluvia");
+    const cantidad = 30; // número de corazones/estrellas en pantalla
+
+    for (let i = 0; i < cantidad; i++) {
+        let gota = document.createElement("div");
+        gota.classList.add("gota");
+
+        // Valores aleatorios para cada gota
+        let posX = Math.random() * 100; // pos en % de ancho
+        let delay = Math.random() * 5; // delay de entrada
+        let duracion = Math.random() * 4 + 4; // entre 4s y 8s de caída
+        let scale = Math.random() * 0.5 + 0.5; // tamaño
+
+        gota.style.left = `${posX}vw`;
+        gota.style.animationDuration = `${duracion}s`;
+        gota.style.animationDelay = `${delay}s`;
+        gota.style.transform = `scale(${scale})`;
+
+        // Alternar íconos para variedad
+        const iconos = ["💖", "✨", "🌸", "🤍"];
+        gota.innerHTML = iconos[Math.floor(Math.random() * iconos.length)];
+
+        if(lluvia) lluvia.appendChild(gota);
+    }
+}
+crearLluvia();
 
 // ELEMENTOS
 const acceso = document.getElementById("acceso");
@@ -65,7 +93,7 @@ accesoForm.addEventListener("submit", function (e) {
             icon: "warning",
             title: "Oops...",
             text: "Escribe la contraseña primero ✍️",
-            confirmButtonColor: "#ff4d6d"
+            confirmButtonColor: "#fb6f92"
         });
         return;
     }
@@ -77,7 +105,7 @@ accesoForm.addEventListener("submit", function (e) {
             title: "✅ Contraseña correcta",
             text: "¡Bienvenida! Prepárate para lo que viene...",
             confirmButtonText: "Continuar",
-            confirmButtonColor: "#ff4d6d",
+            confirmButtonColor: "#fb6f92",
             allowOutsideClick: false
         }).then(() => {
             acceso.style.display = "none";
@@ -96,7 +124,7 @@ accesoForm.addEventListener("submit", function (e) {
                 title: "La contraseña era obvia...",
                 text: "La contraseña es: " + nombrePermitido,
                 confirmButtonText: "Es que te cuesta mucho decirlo",
-                confirmButtonColor: "#ff4d6d"
+                confirmButtonColor: "#fb6f92"
             });
             intentosFallidos = 0;
         } else {
@@ -104,7 +132,7 @@ accesoForm.addEventListener("submit", function (e) {
                 icon: "error",
                 title: "Esa no es, piensa bien",
                 text: "Te quedan " + restantes + " intentos. A los 10 se te mostrará la contraseña que es la más obvia del mundo",
-                confirmButtonColor: "#ff4d6d"
+                confirmButtonColor: "#fb6f92"
             });
         }
 
@@ -316,7 +344,7 @@ function lanzarConfeti() {
     const duracion = 5 * 1000; // 5 segundos
     const tiempoFinal = Date.now() + duracion;
 
-    const colores = ["#ff4d6d", "#ffd166", "#06d6a0", "#118ab2", "#ef476f"];
+    const colores = ["#fb6f92", "#ffb3c6", "#ff8fab", "#ffe5ec", "#ffc2d1"];
 
     (function frame() {
 
@@ -370,7 +398,7 @@ document.getElementById("mensajeForm").addEventListener("submit", function(e){
             icon: "success",
             title: "💌 Mensaje enviado",
             text: "Tu mensaje le ha llegado a Fabián con éxito.",
-            confirmButtonColor: "#ff4d6d"
+            confirmButtonColor: "#fb6f92"
         }).then(() => {
             document.getElementById("mensajeForm").reset();
         });
@@ -379,7 +407,7 @@ document.getElementById("mensajeForm").addEventListener("submit", function(e){
             icon: "error",
             title: "Oops...",
             text: "No se pudo enviar el mensaje. Inténtalo de nuevo más tarde.",
-            confirmButtonColor: "#ff4d6d"
+            confirmButtonColor: "#fb6f92"
         });
         console.error("EmailJS Error:", error);
     })
